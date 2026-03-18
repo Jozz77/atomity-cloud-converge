@@ -1,11 +1,45 @@
 "use client";
 
+import { useMemo } from "react";
+import { useCloudData, type Product } from "@/app/hooks/useCloudData";
 import Header from "./components/Header";
 import MainDashboard from "./components/MainDashboard";
 import CloudBadge from "./components/CloudBadge";
 import Footer from "./components/Footer";
 
 export default function Home() {
+  const { data, isLoading, isError } = useCloudData();
+
+  console.log("Data",data);
+
+  // Data Integration Logic
+  const processedData = useMemo(() => {
+    if (!data || data.length < 12) return null;
+
+    // 1. Partition into 4 groups of 3
+    const groups = {
+      AWS: data.slice(0, 3),
+      Azure: data.slice(3, 6),
+      Google: data.slice(6, 9),
+      OnPremise: data.slice(9, 12),
+    };
+
+    // 2. Calculate dynamic costs using actual prices scaled to look like cloud spend
+    const calculateCost = (products: Product[]) => 
+      products.reduce((sum, p) => sum + p.price, 0) * 124.50;
+
+    const costs = {
+      AWS: calculateCost(groups.AWS),
+      Azure: calculateCost(groups.Azure),
+      Google: calculateCost(groups.Google),
+      OnPremise: calculateCost(groups.OnPremise),
+    };
+
+    const totalCost = Object.values(costs).reduce((sum, c) => sum + c, 0);
+
+    return { groups, costs, totalCost };
+  }, [data]);
+
   return (
     <div className="flex min-h-screen flex-col bg-bg-primary text-text-primary font-sans antialiased">
       <Header />
@@ -42,19 +76,40 @@ export default function Home() {
 
             {/* Scattered Cloud Badges at the "Entry" (Top) */}
             <div className="absolute inset-0 max-w-7xl mx-auto px-container">
-              <CloudBadge type="AWS" className="absolute top-[10%] left-[15%] rotate-[12deg]" />
-              <CloudBadge type="Azure" className="absolute top-[5%] left-[45%] -rotate-[8deg]" />
-              <CloudBadge type="Google" className="absolute top-[15%] right-[20%] rotate-[18deg]" />
-              <CloudBadge type="On-Premise" className="absolute top-[8%] right-[40%] -rotate-[12deg]" />
-              
-              {/* Extra scattered ones for effect */}
-              <CloudBadge type="AWS" className="absolute top-[25%] left-[30%] rotate-6 opacity-40 scale-90" />
-              <CloudBadge type="Azure" className="absolute top-[20%] right-[10%] -rotate-12 opacity-30 scale-75" />
+              {!isLoading && !isError && processedData && (
+                <>
+                  <CloudBadge 
+                    type="AWS" 
+                    cost={processedData.costs.AWS} 
+                    className="absolute top-[10%] left-[15%] rotate-[12deg]" 
+                  />
+                  <CloudBadge 
+                    type="Azure" 
+                    cost={processedData.costs.Azure} 
+                    className="absolute top-[5%] left-[45%] -rotate-[8deg]" 
+                  />
+                  <CloudBadge 
+                    type="Google" 
+                    cost={processedData.costs.Google} 
+                    className="absolute top-[15%] right-[20%] rotate-[18deg]" 
+                  />
+                  <CloudBadge 
+                    type="On-Premise" 
+                    cost={processedData.costs.OnPremise} 
+                    className="absolute top-[8%] right-[40%] -rotate-[12deg]" 
+                  />
+                </>
+              )}
             </div>
 
             {/* The Processor */}
             <div className="relative z-10">
-              <MainDashboard />
+              <MainDashboard 
+                costs={processedData?.costs}
+                isLoading={isLoading}
+                isError={isError}
+                totalCost={processedData?.totalCost || 0}
+              />
             </div>
             
           </div>
@@ -66,3 +121,4 @@ export default function Home() {
     </div>
   );
 }
+
