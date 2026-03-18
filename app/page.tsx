@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
@@ -58,9 +59,17 @@ export default function Home() {
           >
             Documentation
           </a>
+
+          <Link
+            className="flex h-12 w-full items-center justify-center rounded-full border border-border-primary px-5 transition-colors hover:bg-bg-tertiary md:w-[158px]"
+            href="/pages/test"
+          >
+            Test Page
+          </Link>
         </div>
       </main>
     </div>
+
 
   );
 }
