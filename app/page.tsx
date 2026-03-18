@@ -1,8 +1,8 @@
 "use client";
 
-import Header from "./components/Header";
-import ConvergenceSection from "./components/ConvergenceSection";
-import Footer from "./components/Footer";
+import Header from "./components/ui/Header";
+import ConvergenceSection from "./components/ui/ConvergenceSection";
+import Footer from "./components/ui/Footer";
 
 export default function Home() {
   return (

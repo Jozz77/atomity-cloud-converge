@@ -1,5 +1,5 @@
 "use client";
-import { CLOUD_LOGOS } from "../constants/icons";
+import { CLOUD_LOGOS } from "../../constants/icons";
 
 interface CloudBadgeProps {
   type: "AWS" | "Azure" | "Google" | "On-Premise";

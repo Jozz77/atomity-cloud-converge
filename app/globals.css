@@ -25,6 +25,7 @@
   /* Spacing & Radius Tokens */
   --radius-card: 12px;
   --spacing-container: clamp(1rem, 5vw, 3rem);
+  --font-sans: var(--font-geist-sans), sans-serif;
 }
 
 /* Base styles using tokens */
@@ -32,6 +33,6 @@
   body {
     background-color: var(--color-bg-primary);
     color: var(--color-text-primary);
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
   }
 }
