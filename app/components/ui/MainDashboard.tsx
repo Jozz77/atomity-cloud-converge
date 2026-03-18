@@ -80,7 +80,7 @@ const MainDashboard = forwardRef<HTMLDivElement, MainDashboardProps>(
               <h2 id="dashboard-title" className="text-lg sm:text-xl font-bold text-text-primary tracking-tight">
                 Unified Spend
               </h2>
-              <p className="text-[12px] sm:text-sm text-text-secondary mt-0.5">
+              <p className="text-[13px] sm:text-sm text-text-secondary mt-0.5">
                 Across your cloud infrastructure
               </p>
             </div>
@@ -154,10 +154,10 @@ const MainDashboard = forwardRef<HTMLDivElement, MainDashboardProps>(
             <div className="flex items-start justify-between gap-1 sm:gap-3 mt-3" aria-hidden="true">
               {chartData.map((item, index) => (
                 <div key={index} className="w-1/4 flex flex-col items-center gap-0.5">
-                  <span className="text-[9px] sm:text-[11px] font-bold text-text-secondary uppercase tracking-wider text-center">
+                  <span className="text-[11px] sm:text-[11px] font-bold text-text-secondary uppercase tracking-wider text-center">
                     {item.label}
                   </span>
-                  <span className={`bar-cost-display text-[8px] sm:text-[10px] font-semibold text-text-muted`}>
+                  <span className={`bar-cost-display text-[10px] sm:text-[10px] font-semibold text-text-muted`}>
                     {fmt(item.cost)}
                   </span>
                 </div>
@@ -167,7 +167,7 @@ const MainDashboard = forwardRef<HTMLDivElement, MainDashboardProps>(
 
           {/* Grand Total Footer */}
           <div className="mt-5 flex items-center justify-between border-t border-border-secondary pt-5">
-            <span className="text-[12px] sm:text-sm font-medium text-text-secondary" id="total-cost-label">
+            <span className="text-[13px] sm:text-sm font-medium text-text-secondary" id="total-cost-label">
               Master Total
             </span>
             <span 

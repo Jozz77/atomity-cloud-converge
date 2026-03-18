@@ -25,7 +25,7 @@ export default function CloudBadge({ type, className = "", cost }: CloudBadgePro
   
   return (
     <div 
-      className={`flex items-center gap-3 rounded-full border border-border-primary bg-bg-secondary p-1 pe-4 shadow-xl shadow-black/50 transition-all hover:border-accent-primary/50 group ${className}`}
+      className={`flex items-center gap-3 rounded-full border border-border-primary bg-bg-secondary p-1 pr-4 shadow-xl shadow-black/50 transition-all hover:border-accent-primary/50 group ${className}`}
       role="group"
       aria-label={`${type} current cloud spend: ${formattedCost || "calculating"}`}
     >
@@ -33,7 +33,7 @@ export default function CloudBadge({ type, className = "", cost }: CloudBadgePro
         <div className="w-4 h-4">{icon}</div>
       </div>
       <div className="flex flex-col">
-        <span className="text-[10px] font-bold uppercase tracking-widest text-text-secondary leading-none m-block-end-0.5">{label}</span>
+        <span className="text-[10px] font-bold uppercase tracking-widest text-text-secondary leading-none mb-0.5">{label}</span>
         {formattedCost && (
           <span className="text-xs font-bold text-text-primary leading-none tabular-nums">{formattedCost}</span>
         )}

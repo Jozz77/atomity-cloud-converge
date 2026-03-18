@@ -55,39 +55,5 @@
     color: var(--color-text-primary);
     font-family: var(--font-sans);
     transition: background-color 0.3s ease, color 0.3s ease;
-    -webkit-font-smoothing: antialiased;
-  }
-}
-
-/* Modern CSS Utilities */
-@layer utilities {
-  .nav-spotlight {
-    display: flex;
-    gap: 2rem;
-    
-    /* Nesting + Parent-aware :has() selector */
-    &:has(a:hover, a:focus-visible) {
-      & a:not(:hover, :focus-visible) {
-        opacity: 0.35;
-        filter: blur(0.4px);
-        transform: scale(0.97);
-      }
-    }
-    
-    & a {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      display: inline-block;
-    }
-  }
-
-  /* Logical Properties for responsive padding */
-  .p-inline-responsive {
-    padding-inline: var(--spacing-container);
-  }
-
-  /* Container Query setup */
-  .dashboard-container {
-    container-type: inline-size;
-    container-name: dashboard;
   }
 }
