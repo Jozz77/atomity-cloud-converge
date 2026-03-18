@@ -2,14 +2,14 @@
 
 @theme {
   /* Backgrounds */
-  --color-bg-primary: #0a0a0b;    /* Deep night */
-  --color-bg-secondary: #0e0f11;  /* Card background */
-  --color-bg-tertiary: #161618;   /* Hover states / elements */
+  --color-bg-primary: #0a0a0b;
+  --color-bg-secondary: #0e0f11;
+  --color-bg-tertiary: #161618;
 
   /* Text */
-  --color-text-primary: #f9fafb;   /* High contrast */
-  --color-text-secondary: #a1a1aa; /* Secondary info */
-  --color-text-muted: #71717a;     /* Lower priority */
+  --color-text-primary: #f9fafb;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
 
   /* Brand & Accents */
   --color-accent-primary: #3b82f6; 
@@ -28,11 +28,32 @@
   --font-sans: var(--font-geist-sans), sans-serif;
 }
 
+/* ── Light Theme Overrides ── */
+[data-theme="light"] {
+  --color-bg-primary: #f8f9fb;
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: #f0f1f3;
+
+  --color-text-primary: #111827;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #9ca3af;
+
+  --color-accent-primary: #2563eb;
+  --color-accent-aws: #d97706;
+  --color-accent-google: #1d4ed8;
+  --color-accent-success: #059669;
+  --color-accent-error: #dc2626;
+
+  --color-border-primary: rgba(0, 0, 0, 0.1);
+  --color-border-secondary: rgba(0, 0, 0, 0.05);
+}
+
 /* Base styles using tokens */
 @layer base {
   body {
     background-color: var(--color-bg-primary);
     color: var(--color-text-primary);
     font-family: var(--font-sans);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }

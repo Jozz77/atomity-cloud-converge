@@ -204,18 +204,16 @@ export default function ConvergenceSection() {
     <section
       ref={sectionRef}
       aria-label="Cloud Spend Convergence Animation"
-      className="relative w-full h-screen overflow-hidden"
+      className="relative w-full h-screen overflow-hidden bg-bg-primary"
       style={{
-        background: tokens.colors.bgPrimary,
         backgroundImage:
-          "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0)",
+          "radial-gradient(circle at 1px 1px, var(--color-text-muted) 0.5px, transparent 0)",
         backgroundSize: "40px 40px",
       }}
     >
       {/* Ambient glow stays behind everything */}
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[140px]"
-        style={{ background: `${tokens.colors.accentPrimary}1a` }}
+        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[140px] bg-accent-primary/10"
       />
 
       {/* ── Scattered Cloud Badges ("Data Chaos" input sources) ── */}

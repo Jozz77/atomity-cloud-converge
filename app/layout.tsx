@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 };
 
 import QueryProvider from "./components/providers/QueryProvider";
+import ThemeProvider from "./components/providers/ThemeProvider";
 
 export default function RootLayout({
   children,
@@ -25,12 +26,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <QueryProvider>
-          {children}
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
         </QueryProvider>
       </body>
     </html>
