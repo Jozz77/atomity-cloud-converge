@@ -1,75 +1,68 @@
-import Link from "next/link";
-import Image from "next/image";
+"use client";
+
+import Header from "./components/Header";
+import MainDashboard from "./components/MainDashboard";
+import CloudBadge from "./components/CloudBadge";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-bg-primary font-sans text-text-primary">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-container bg-bg-secondary sm:items-start border border-border-secondary rounded-card">
-        <Image
-          className="brightness-0 invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold text-accent-success leading-10 tracking-tight">
-            To get started, edit the page.tsx file.
+    <div className="flex min-h-screen flex-col bg-bg-primary text-text-primary font-sans antialiased">
+      <Header />
+
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="mx-auto max-w-7xl px-container text-center pt-32 mb-16">
+          <div className="inline-flex items-center gap-2 rounded-full border border-accent-primary/20 bg-accent-primary/5 px-4 py-1.5 mb-8">
+            <span className="flex h-2 w-2 rounded-full bg-accent-primary animate-pulse" />
+            <span className="text-xs font-semibold uppercase tracking-widest text-accent-primary">Waitlist Open</span>
+          </div>
+          <h1 className="mx-auto max-w-4xl text-balance font-bold tracking-tight leading-[1.1]" 
+              style={{ fontSize: "clamp(2.5rem, 8vw, 4.5rem)" }}>
+            Everything you spend, <span className="text-accent-primary">converged.</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-text-secondary">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-text-primary hover:text-accent-primary transition-colors"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-text-primary hover:text-accent-primary transition-colors"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mx-auto mt-8 max-w-2xl text-lg text-text-secondary leading-relaxed">
+            Unify your AWS, Azure, Google Cloud, and On-Premise costs into a single, automated source of truth.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-text-primary px-5 text-bg-primary transition-colors hover:bg-text-secondary md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="brightness-0"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-border-primary px-5 transition-colors hover:bg-bg-tertiary md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        </section>
 
-          <Link
-            className="flex h-12 w-full items-center justify-center rounded-full border border-border-primary px-5 transition-colors hover:bg-bg-tertiary md:w-[158px]"
-            href="/pages/test"
-          >
-            Test Page
-          </Link>
-        </div>
+        {/* Funnel Section - High Canvas */}
+        <section 
+          className="relative h-[400vh] w-full"
+          style={{
+            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0)",
+            backgroundSize: "40px 40px"
+          }}
+        >
+          {/* Sticky Controller */}
+          <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+            
+            {/* Background Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 bg-accent-primary/10 blur-[120px] rounded-full w-[600px] h-[600px]" />
+
+            {/* Scattered Cloud Badges at the "Entry" (Top) */}
+            <div className="absolute inset-0 max-w-7xl mx-auto px-container">
+              <CloudBadge type="AWS" className="absolute top-[10%] left-[15%] rotate-[12deg]" />
+              <CloudBadge type="Azure" className="absolute top-[5%] left-[45%] -rotate-[8deg]" />
+              <CloudBadge type="Google" className="absolute top-[15%] right-[20%] rotate-[18deg]" />
+              <CloudBadge type="On-Premise" className="absolute top-[8%] right-[40%] -rotate-[12deg]" />
+              
+              {/* Extra scattered ones for effect */}
+              <CloudBadge type="AWS" className="absolute top-[25%] left-[30%] rotate-6 opacity-40 scale-90" />
+              <CloudBadge type="Azure" className="absolute top-[20%] right-[10%] -rotate-12 opacity-30 scale-75" />
+            </div>
+
+            {/* The Processor */}
+            <div className="relative z-10">
+              <MainDashboard />
+            </div>
+            
+          </div>
+        </section>
       </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
-
-
   );
 }
