@@ -6,12 +6,12 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen overflow-hidden flex-col bg-bg-primary text-text-primary font-sans antialiased">
+    <div className="flex min-h-screen overflow-x-hidden flex-col bg-bg-primary text-text-primary font-sans antialiased">
       <Header />
 
       <main className="flex-grow">
         {/* Hero */}
-        <section className="mx-auto max-w-7xl px-container text-center pt-32 mb-0">
+        <section aria-label="Introduction and Value Proposition" className="mx-auto max-w-7xl px-container text-center pt-32 mb-0">
           <div className="inline-flex items-center gap-2 rounded-full border border-accent-primary/20 bg-accent-primary/5 px-4 py-1.5 mb-8">
             <span className="flex h-2 w-2 rounded-full bg-accent-primary animate-pulse" />
             <span className="text-xs font-semibold uppercase tracking-widest text-accent-primary">

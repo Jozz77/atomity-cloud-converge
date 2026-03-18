@@ -24,14 +24,18 @@ export default function CloudBadge({ type, className = "", cost }: CloudBadgePro
   }).format(cost) : null;
   
   return (
-    <div className={`flex items-center gap-3 rounded-full border border-border-primary bg-bg-secondary p-1 pr-4 shadow-xl shadow-black/50 transition-all hover:border-accent-primary/50 group ${className}`}>
-      <div className={`flex aspect-square h-8 items-center justify-center rounded-full font-bold text-bg-primary transition-transform group-hover:scale-110 ${color}`}>
+    <div 
+      className={`flex items-center gap-3 rounded-full border border-border-primary bg-bg-secondary p-1 pr-4 shadow-xl shadow-black/50 transition-all hover:border-accent-primary/50 group ${className}`}
+      role="group"
+      aria-label={`${type} current cloud spend: ${formattedCost || "calculating"}`}
+    >
+      <div className={`flex aspect-square h-8 items-center justify-center rounded-full font-bold text-bg-primary transition-transform group-hover:scale-110 ${color}`} aria-hidden="true">
         <div className="w-4 h-4">{icon}</div>
       </div>
       <div className="flex flex-col">
         <span className="text-[10px] font-bold uppercase tracking-widest text-text-secondary leading-none mb-0.5">{label}</span>
         {formattedCost && (
-          <span className="text-xs font-bold text-text-primary leading-none">{formattedCost}</span>
+          <span className="text-xs font-bold text-text-primary leading-none tabular-nums">{formattedCost}</span>
         )}
       </div>
     </div>

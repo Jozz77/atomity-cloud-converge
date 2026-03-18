@@ -33,22 +33,22 @@ const BADGE_CONFIGS: BadgeConfig[] = [
   {
     type: "AWS",
     costKey: "AWS",
-    initStyle: { top: "10%", left: "8%", transform: "rotate(12deg)" },
+    initStyle: { top: "12%", left: "5%", transform: "rotate(12deg) scale(0.9)" },
   },
   {
     type: "Azure",
     costKey: "Azure",
-    initStyle: { top: "6%", left: "42%", transform: "rotate(-8deg)" },
+    initStyle: { top: "5%", left: "35%", transform: "rotate(-8deg) scale(0.85)" },
   },
   {
     type: "Google",
     costKey: "Google",
-    initStyle: { top: "14%", right: "8%", transform: "rotate(18deg)" },
+    initStyle: { top: "15%", right: "5%", transform: "rotate(18deg) scale(0.95)" },
   },
   {
     type: "On-Premise",
     costKey: "OnPremise",
-    initStyle: { top: "9%", right: "34%", transform: "rotate(-12deg)" },
+    initStyle: { top: "8%", right: "30%", transform: "rotate(-12deg) scale(0.8)" },
   },
 ];
 
@@ -203,6 +203,7 @@ export default function ConvergenceSection() {
   return (
     <section
       ref={sectionRef}
+      aria-label="Cloud Spend Convergence Animation"
       className="relative w-full h-screen overflow-hidden"
       style={{
         background: tokens.colors.bgPrimary,
