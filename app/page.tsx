@@ -10,9 +10,9 @@ export default function Home() {
       <Header />
 
       <main className="flex-grow">
-        {/* Hero */}
-        <section aria-label="Introduction and Value Proposition" className="mx-auto max-w-7xl px-container text-center pt-32 mb-0">
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent-primary/20 bg-accent-primary/5 px-4 py-1.5 mb-8">
+        {/* Hero — using logical properties for responsive layout */}
+        <section aria-label="Introduction and Value Proposition" className="mx-auto max-w-7xl p-inline-responsive text-center p-block-start-32 m-block-end-0">
+          <div className="inline-flex items-center gap-2 rounded-full border border-accent-primary/20 bg-accent-primary/5 p-inline-4 p-block-1.5 m-block-end-8">
             <span className="flex h-2 w-2 rounded-full bg-accent-primary animate-pulse" />
             <span className="text-xs font-semibold uppercase tracking-widest text-accent-primary">
               Waitlist Open
@@ -25,7 +25,7 @@ export default function Home() {
             Everything you spend,{" "}
             <span className="text-accent-primary">converged.</span>
           </h1>
-          <p className="mx-auto mt-8 max-w-2xl text-lg text-text-secondary leading-relaxed">
+          <p className="mx-auto m-block-start-8 max-w-2xl text-lg text-text-secondary leading-relaxed">
             Unify your AWS, Azure, Google Cloud, and On-Premise costs into a
             single, automated source of truth.
           </p>

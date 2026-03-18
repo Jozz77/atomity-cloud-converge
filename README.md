@@ -2,9 +2,13 @@
 
 Built with **Next.js 16** · **React 19** · **Tailwind CSS v4** · **GSAP** · **TanStack Query**
 
+[Live Demo](https://atomity-cloud-converge.vercel.app/)
+
 ---
 
 ## 🎯 Feature Choice: Multi-Cloud Convergence
+
+I chose **Option B** (the 0:45–0:55 segment) because it represents the main goal of modern apps: **turning messy data into a simple view**.
 
 ### The Problem
 
