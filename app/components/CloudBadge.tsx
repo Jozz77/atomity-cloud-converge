@@ -1,8 +1,6 @@
 "use client";
 import { CLOUD_LOGOS } from "../constants/icons";
 
-import { useState, useEffect } from "react";
-
 interface CloudBadgeProps {
   type: "AWS" | "Azure" | "Google" | "On-Premise";
   className?: string;
@@ -17,14 +15,7 @@ const config = {
 };
 
 export default function CloudBadge({ type, className = "", cost }: CloudBadgeProps) {
-  const [isMounted, setIsMounted] = useState(false);
   const { label, color, icon } = config[type];
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return null; // Ensure server-client consistency for the initial frame
   
   const formattedCost = cost ? new Intl.NumberFormat('en-US', {
     style: 'currency',
